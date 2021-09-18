@@ -1,4 +1,5 @@
 use flume::{Receiver, Sender};
+use std::io::Cursor;
 use std::net::IpAddr;
 use std::path::{Path, PathBuf};
 use std::sync::atomic::Ordering;
@@ -257,6 +258,7 @@ pub async fn send_clipboard(
                     continue;
                 }
             };
+            drop(bytes);
 
             match send_clipboard_to_group(
                 &pool,
@@ -458,11 +460,11 @@ fn handle_receive(
     app_dir: Option<&str>,
 ) -> Result<(String, String), ClipboardError>
 {
-    let (mut message, group) = validate(raw_data, groups, identity)?;
+    let (mut message, group) = validate(Cursor::new(raw_data), groups, identity)?;
     let bytes = decrypt(&mut message, identity, group)?;
     let data = match message.message_type {
         MessageType::Heartbeat => bytes,
-        _ => uncompress(bytes)?,
+        _ => uncompress(Cursor::new(bytes))?,
     };
     write_to(
         clipboard,
