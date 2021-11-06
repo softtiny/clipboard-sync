@@ -17,6 +17,7 @@ pub mod clipboards;
 pub mod config;
 pub mod defaults;
 pub mod destination_pool;
+pub mod encoding;
 pub mod encryption;
 pub mod errors;
 pub mod filesystem;

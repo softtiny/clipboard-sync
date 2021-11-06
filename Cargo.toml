@@ -23,7 +23,7 @@ clap = {version = "2", features = ["yaml"]}
 tokio = { version = "1", features = ["full"] }
 log = "0.4"
 env_logger = "0.9"
-flate2 = "1.0"
+flate2 = "1"
 walkdir = "2"
 dirs = "4"
 cached = "0.23"
@@ -42,6 +42,10 @@ crossbeam-channel = "0.5"
 flume = "0.10"
 mio = "0.7"
 #
+async-compression = { version = "~0.3.8", features = ["tokio", "zlib"] }
+aead = { version = "~0.4.3", features = ["stream", "alloc"] }
+futures-core = "0.3"
+pin-project = "1"
 
 [target.'cfg(target_os = "android")'.dependencies]
 android_logger = "0.10"
