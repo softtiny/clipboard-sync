@@ -11,66 +11,66 @@ license = "LICENSE"
 default-run = "clipboard-sync"
 
 [dependencies]
-chacha20poly1305 = "0.9"
-base64 = "0.13"
-chrono = "0.4"
-rand = "0.8"
-bincode = "1"
-serde = { version = "1", features = ["derive"] }
-serde_yaml = "0.8"
-serde_json = "1"
-clap = {version = "2", features = ["yaml"]}
-tokio = { version = "1", features = ["full"] }
-log = "0.4"
-env_logger = "0.9"
-flate2 = "1.0"
-walkdir = "2"
-dirs = "4"
-cached = "0.23"
-jni = "0.19"
+chacha20poly1305 = "0.10.1"
+base64 = "0.21.7"
+chrono = "0.4.33"
+rand = " 0.8.5"
+bincode = "1.3.3"
+serde = { version = "1.0.196", features = ["derive"] }
+serde_yaml = "0.9.31"
+serde_json = "1.0.113"
+clap = "4.4.18"
+tokio = { version = "1.36.0", features = ["full"] }
+log = "0.4.20"
+env_logger = "0.11.1"
+flate2 = "1.0.28"
+walkdir = "2.4.0"
+dirs = "5.0.1"
+cached = "0.48.1"
+jni = "0.21.1"
 lazy_static = "1"
-indexmap = { version = "1", features = ["serde-1"] }
+indexmap = "2.2.2"
 laminar = { version = "0.5" }
-thiserror = "1"
-notify = "4"
-x25519-dalek = { version = "1", features = ["serde"] }
-blake2 = "0.9"
-urlencoding = "2"
+thiserror = "1.0.56"
+notify = "6.1.1"
+x25519-dalek = { version = "2.0.1", features = ["serde"] }
+blake2 = "0.10.6"
+urlencoding = " 2.1.3"
 # @TODO simplify/replace/remove
-futures = "0.3"
-crossbeam-channel = "0.5"
-flume = "0.10"
-mio = "0.7"
+futures = "0.3.30"
+crossbeam-channel = "0.5.11"
+flume = "0.11.0"
+mio = "0.8.10"
 #
 
 [target.'cfg(target_os = "android")'.dependencies]
-android_logger = "0.10"
+android_logger = "0.13.3"
 
 [build-dependencies]
-cargo-deb = "1.28"
+cargo-deb = "2.0.5"
 
 [dev-dependencies]
-assert_cmd = "2"
-predicates = "2"
-tokio-test = "0.4"
+assert_cmd = "2.0.13"
+predicates = "3.1.0"
+tokio-test = "0.4.3"
 
 [lib]
 crate-type = ["lib", "cdylib"]
 
 [dependencies.public-ip]
-version = "0.2"
+version = "0.2.2"
 optional = true
 
 [dependencies.quinn]
-version = "0.7"
+version = " 0.10.2"
 optional = true
 
 [dependencies.quiche]
-version = "0.8"
+version = "0.20.0"
 optional = true
 
 [dependencies.rustls]
-version = "0.19"
+version = "0.22.2"
 optional = true
 
 [dependencies.clipboard]
@@ -81,7 +81,7 @@ optional = true
 # path = "../rust-clipboard"
 
 [dependencies.rsntp]
-version = "2.0.0"
+version = "4.0.0"
 optional = true
 
 [features]
